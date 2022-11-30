@@ -8,7 +8,7 @@
     let answerInput = "";
 
     async function getQuestion() {
-        const response = await fetch(`http://localhost:3000/question/${id}`);
+        const response = await fetch(`http://129.151.167.211:3000/question/${id}`);
         const question = await response.json();
 
         return question;
