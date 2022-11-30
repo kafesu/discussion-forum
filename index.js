@@ -4,6 +4,8 @@ import cors from "cors";
 
 const prisma = new PrismaClient();
 const app = express();
+const isProd = process.env.mode === "production";
+
 app.use(cors());
 
 app.get("/feed", async (req, res) => {

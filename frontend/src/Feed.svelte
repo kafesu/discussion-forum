@@ -7,7 +7,7 @@
 	const quote = quotes[index];
 
     async function getFeed() {
-        const response = await fetch("http://129.151.167.211:3000/feed");
+        const response = await fetch("http://api.chat.ekon.club/feed");
         const questions = await response.json();
 		
         return questions.reverse();
