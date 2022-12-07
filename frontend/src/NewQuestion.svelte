@@ -8,7 +8,7 @@
     async function handleSubmit(e) {
         e.preventDefault();
 
-        const response = await fetch("http://api.chat.ekon.club/question", {
+        const response = await fetch("https://api.chat.ekon.club/question", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

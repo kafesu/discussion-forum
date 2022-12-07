@@ -8,7 +8,7 @@
     let answerInput = "";
 
     async function getQuestion() {
-        const response = await fetch(`http://api.chat.ekon.club/question/${id}`);
+        const response = await fetch(`https://api.chat.ekon.club/question/${id}`);
         const question = await response.json();
 
         return question;
