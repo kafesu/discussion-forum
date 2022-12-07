@@ -68,9 +68,11 @@ if (isProd) {
 	createServer({
 		key: key,
 		cert: cert
-	}, app).listen(80);
+	}, app).listen(443, () => {
+		console.log("running in prod")
+	});
 } else {
 	app.listen(80, () => {
-  		console.log("running");
+  		console.log("running in dev");
 	});
 }
