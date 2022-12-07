@@ -6,9 +6,7 @@ import { readFileSync } from 'fs';
 
 const prisma = new PrismaClient();
 const app = express();
-console.log(process.env.NODE_ENV);
 const isProd = process.env.NODE_ENV === "production";
-console.log(isProd);
 
 app.use(cors());
 
@@ -65,7 +63,7 @@ app.post("/answer", async (req, res) => {
 
 if (isProd) {
 	const cert = readFileSync('/etc/letsencrypt/live/api.chat.ekon.club/fullchain.pem');
-	const key = readFileSync('/etc/letsencrypt/live/api.chat.ekon/club/privkey.pem');
+	const key = readFileSync('/etc/letsencrypt/live/api.chat.ekon.club/privkey.pem');
 
 	createServer({
 		key: key,
