@@ -1,9 +1,10 @@
 <script>
-    import { useNavigate } from "svelte-navigator";
+    // AMDG
+	import { useNavigate } from "svelte-navigator";
     const navigate = useNavigate();
 
     let title, body;
-
+	
     async function handleSubmit(e) {
         e.preventDefault();
 
