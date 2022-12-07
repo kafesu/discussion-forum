@@ -1,10 +1,14 @@
 import { PrismaClient } from "./generated/prisma-client/index.js";
 import express from "express";
 import cors from "cors";
+import { createServer } from 'https';
+import { readFileSync } from 'fs';
 
 const prisma = new PrismaClient();
 const app = express();
-const isProd = process.env.mode === "production";
+console.log(process.env.NODE_ENV);
+const isProd = process.env.NODE_ENV === "production";
+console.log(isProd);
 
 app.use(cors());
 
@@ -59,6 +63,16 @@ app.post("/answer", async (req, res) => {
   }
 });
 
-app.listen(80, () => {
-  console.log("running");
-});
+if (isProd) {
+	const cert = readFileSync('/etc/letsencrypt/live/api.chat.ekon.club/fullchain.pem');
+	const key = readFileSync('/etc/letsencrypt/live/api.chat.ekon/club/privkey.pem');
+
+	createServer({
+		key: key,
+		cert: cert
+	}, app).listen(80);
+} else {
+	app.listen(80, () => {
+  		console.log("running");
+	});
+}

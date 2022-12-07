@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "sudo nodemon .",
-    "start": "sudo node ."
+    "dev": "sudo NODE_ENV=development nodemon .",
+    "start": "sudo NODE_ENV=production node ."
   },
   "keywords": [],
   "author": "",
